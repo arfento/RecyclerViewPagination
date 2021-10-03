@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
 
 
-        adapter = new MainAdapter(dataArraylist,this);
+        adapter = new MainAdapter(dataArraylist,MainActivity.this);
+        adapter.notifyDataSetChanged();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
@@ -110,8 +111,10 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            adapter = new MainAdapter(dataArraylist, this);
+            adapter = new MainAdapter(dataArraylist, MainActivity.this);
+            adapter.notifyDataSetChanged();
             recyclerView.setAdapter(adapter);
+
         }
     }
 }
